@@ -9,31 +9,32 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items)
         {
-            if (item.name.equals("Aged Brie") || item.name.equals("Backstage passes to a TAFKAL80ETC concert"))
+            if (item.name.equals("Aged Brie"))
             {
                 if (item.quality < 50)
                 {
                     item.quality++;
-
-                    if (item.name.equals("Backstage passes to a TAFKAL80ETC concert"))
-                    {
-                        if (item.sellIn < 11)
-                        {
-                            item.increaseQality();
-                        }
-
-                        if (item.sellIn < 6)
-                        {
-                            item.increaseQality();
-                        }
-                    }
                 }
-            } else
+            }
+            else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert"))
             {
-                if (item.quality > 0)
+                if (item.quality < 50)
                 {
-                    item.decreaseQuality();
+                    item.quality++;
+                    if (item.sellIn < 11)
+                    {
+                        item.increase();
+                    }
+                    if (item.sellIn < 6)
+                    {
+                        item.increase();
+                    }
+
                 }
+            }
+            else
+            {
+                item.decrease();
             }
 
             if (!item.name.equals("Sulfuras, Hand of Ragnaros"))
@@ -45,19 +46,15 @@ class GildedRose {
             {
                 if (item.name.equals("Aged Brie"))
                 {
-                    item.increaseQality();
-                } else
+                    item.increase();
+                }
+                else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert"))
                 {
-                    if (item.name.equals("Backstage passes to a TAFKAL80ETC concert"))
-                    {
-                        item.quality = 0;
-                    } else
-                    {
-                        if (item.quality > 0)
-                        {
-                            item.decreaseQuality();
-                        }
-                    }
+                    item.quality = 0;
+                }
+                else
+                {
+                    item.decrease();
                 }
             }
         }

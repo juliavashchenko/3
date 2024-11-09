@@ -17,14 +17,16 @@ public class Item {
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
-    public void decreaseQuality()
+
+    public void decrease()
     {
-        if (!name.equals("Sulfuras, Hand of Ragnaros"))
+        if(quality > 0 && !name.equals("Sulfuras, Hand of Ragnaros"))
         {
             quality--;
         }
     }
-    public void increaseQality()
+
+    public void increase()
     {
         if (quality < 50)
         {
