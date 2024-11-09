@@ -1,5 +1,4 @@
 package com.gildedrose;
-
 class GildedRose {
     Item[] items;
 
@@ -20,12 +19,12 @@ class GildedRose {
                     {
                         if (item.sellIn < 11)
                         {
-                            exOne(item);
+                            item.increaseQality();
                         }
 
                         if (item.sellIn < 6)
                         {
-                           exOne(item);
+                            item.increaseQality();
                         }
                     }
                 }
@@ -33,7 +32,7 @@ class GildedRose {
             {
                 if (item.quality > 0)
                 {
-                    exTwo(item);
+                    item.decreaseQuality();
                 }
             }
 
@@ -46,7 +45,7 @@ class GildedRose {
             {
                 if (item.name.equals("Aged Brie"))
                 {
-                    exOne(item);
+                    item.increaseQality();
                 } else
                 {
                     if (item.name.equals("Backstage passes to a TAFKAL80ETC concert"))
@@ -56,25 +55,12 @@ class GildedRose {
                     {
                         if (item.quality > 0)
                         {
-                            exTwo(item);
+                            item.decreaseQuality();
                         }
                     }
                 }
             }
         }
     }
-    private static void exTwo(Item item)
-    {
-        if (!item.name.equals("Sulfuras, Hand of Ragnaros"))
-        {
-            item.quality--;
-        }
-    }
-    private static void exOne(Item item)
-    {
-        if (item.quality < 50)
-        {
-            item.quality++;
-        }
-    }
+
 }
