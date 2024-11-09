@@ -33,4 +33,13 @@ public class Item {
             quality++;
         }
     }
+    public void updateQuality()
+    {
+        decrease();
+        sellIn--;
+        if (sellIn < 0)
+        {
+            decrease();
+        }
+    }
 }

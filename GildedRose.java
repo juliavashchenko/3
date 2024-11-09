@@ -1,4 +1,5 @@
 package com.gildedrose;
+
 class GildedRose {
     Item[] items;
 
@@ -31,21 +32,19 @@ class GildedRose {
                     {
                         item.increase();
                     }
+
                     item.sellIn--;
                     if (item.sellIn < 0)
                     {
                         item.quality = 0;
                     }
                     break;
+
                 case "Sulfuras, Hand of Ragnaros":
                     break;
+
                 default:
-                    item.decrease();
-                    item.sellIn--;
-                    if (item.sellIn < 0)
-                    {
-                        item.decrease();
-                    }
+                    item.updateQuality();
                     break;
 
             }
